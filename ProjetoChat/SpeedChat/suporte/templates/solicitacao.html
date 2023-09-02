@@ -1,0 +1,22 @@
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div class="{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+<form method="post">
+    {% csrf_token %}
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nome" required>
+    <br>
+    <label for="descricao">Descrição do problema:</label>
+    <textarea name="descricao" id="descricao" required></textarea>
+    <br>
+    <input type="submit" value="Enviar Solicitação">
+</form>
